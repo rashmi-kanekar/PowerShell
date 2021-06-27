@@ -1,6 +1,8 @@
 param ($param1)
 Write-Host "Hello World Test 3"
 
+
+<#
 git config --global user.email "rashmi.kanekar@outlook.com"
 git config --global user.name "rashmi-kanekar"
   
@@ -47,3 +49,5 @@ https://rashmi-kanekar:$GITHUB_ACCESS_TOKEN@github.com/rashmi-kanekar/PowerShell
 Write-Output "`n `nPush the change"
 #git push
 git push origin HEAD:master
+
+#>
