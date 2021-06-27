@@ -5,7 +5,7 @@ on: [repository_dispatch]
 jobs:
   hello-world:
 
-    runs-on: windows-latest
+    runs-on: self-hosted #windows-latest
 
     steps:
     - uses: actions/checkout@v1
@@ -23,5 +23,7 @@ jobs:
       env:
         GITHUB_CONTEXT: ${{ toJSON(github) }}
       run: echo "$GITHUB_CONTEXT"
-    - name: Run PowerShell Test script
-      run: pwsh -command ".\$GITHUB_WORKSPACE\Test-Git.ps1" ${{ github.event.client_payload.text }}
+    #- name: Run PowerShell Test script
+    #  run: pwsh -command ".\$GITHUB_WORKSPACE\Test-Git.ps1" ${{ github.event.client_payload.text }}
+    - name: Run PowerShell Folder Test script
+      run: .\PowerShell_Script\Test-Git2.ps1 ${{ github.event.client_payload.text }}
