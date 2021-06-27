@@ -1,0 +1,26 @@
+name: RUN PS Script
+
+on: 
+  workflow_dispatch:
+  
+jobs:
+  hello-world:
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Run PowerShell Hello World script
+      #if: github.event.action == 'inline'
+      run: Write-Output 'Hello World INLINE TEST!'; git config ; git status #echo ${env:PATH}
+    - name: Run a multi-line PowerShell script
+      if: github.event.action == 'inline'
+      run: |
+        $psversiontable;
+        Get-Process;
+    - name: Run PowerShell Test script
+      run: pwsh -command ".\$GITHUB_WORKSPACE\Test-Git.ps1"
+    - name: Run PowerShell Folder Test script
+      run: pwsh -command ".\$GITHUB_WORKSPACE\PowerShell_Script/Test-Git2.ps1"
+        
+    
