@@ -30,7 +30,8 @@ Write-Output "`nGit Commit"
 git commit -m "Added file Process file"
 
 Write-Output "`n `nPush the change"
-git push
+#git push
+git push origin HEAD:master
 #git push origin HEAD:master
 
 #Write-Output "Status prior to commit"
