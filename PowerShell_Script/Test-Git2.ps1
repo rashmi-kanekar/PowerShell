@@ -22,7 +22,7 @@ Write-Output "Printing Location"
 Write-Output "Create or Update File"
 
 [string]$time = (Get-Date)
-"Hello World $param1... $time" | Out-File ".\Process.tf" -Force -append
+"Hello World $param1... $time" | Out-File ".\Process.tf" -Force #-append
 
 Write-Output "Add the file"
 git add --all
