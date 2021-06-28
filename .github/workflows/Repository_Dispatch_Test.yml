@@ -5,7 +5,7 @@ on: [repository_dispatch]
 jobs:
   hello-world:
 
-    runs-on: self-hosted #windows-latest
+    runs-on: windows-latest #self-hosted
 
     steps:
     - uses: actions/checkout@v1
@@ -20,6 +20,7 @@ jobs:
         Write-Output "Printing Webhook Action TEXT ${{ github.event.client_payload.text }} ...";
         Write-Output "Printing CONTEXT $GITHUB_CONTEXT";
     - name: Dump GitHub context
+      if: github.event.action == 'dev'
       env:
         GITHUB_CONTEXT: ${{ toJSON(github) }}
       run: echo "$GITHUB_CONTEXT"
