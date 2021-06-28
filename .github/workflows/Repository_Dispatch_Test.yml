@@ -20,10 +20,12 @@ jobs:
         Write-Output "Printing Webhook Action TEXT ${{ github.event.client_payload.text }} ...";
         Write-Output "Printing CONTEXT $GITHUB_CONTEXT";
     - name: Dump GitHub context
+      if: github.event.action == 'inline'
       env:
         GITHUB_CONTEXT: ${{ toJSON(github) }}
       run: echo "$GITHUB_CONTEXT"
     #- name: Run PowerShell Test script
     #  run: pwsh -command ".\$GITHUB_WORKSPACE\Test-Git.ps1" ${{ github.event.client_payload.text }}
     - name: Run PowerShell Folder Test script
+      if: github.event.action == 'inline'
       run: .\PowerShell_Script\Test-Git2.ps1 ${{ github.event.client_payload.text }}
