@@ -11,7 +11,14 @@ git config --global user.name "rashmi-kanekar"
 
 #Write-Output "`n`n Printing GIT status#####"
 #git status
-
+if($env -eq "dev")
+{
+"clone dev"
+}
+elseif()
+{
+"NON DEV"
+}
 Write-Output "Printing Webhook Github $param1 ...";
 #Write-Output "Printing Webhook Action TEXT ${{ github.event.client_payload.text }} ...";
 #$GITHUB_CONTEXT
