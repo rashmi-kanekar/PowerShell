@@ -10,10 +10,10 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Run PowerShell Hello World script
-      if: github.event.action == 'inline'
+      if: github.event.action == 'dev'
       run: Write-Output 'Hello World!'
     - name: Run a multi-line PowerShell script
-      if: github.event.action == 'inline'
+      if: github.event.action == 'dev'
       run: |
         Write-Output "Printing Webhook Action ${{ github.event.action }} ...";
         Write-Output "Printing Webhook Github ${{ github.workflow}}...";
@@ -26,4 +26,5 @@ jobs:
     #- name: Run PowerShell Test script
     #  run: pwsh -command ".\$GITHUB_WORKSPACE\Test-Git.ps1" ${{ github.event.client_payload.text }}
     - name: Run PowerShell Folder Test script
+      if: github.event.action == 'dev'
       run: .\PowerShell_Script\Test-Git2.ps1 ${{ github.event.client_payload.text }}
