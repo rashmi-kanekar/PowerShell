@@ -1,4 +1,4 @@
-name: Repository_Dispatch_Test
+name: DEV_Repository_Dispatch_Test
 
 on: [repository_dispatch]
 
