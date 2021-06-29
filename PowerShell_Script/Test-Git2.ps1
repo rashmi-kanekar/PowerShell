@@ -11,14 +11,7 @@ git config --global user.name "rashmi-kanekar"
 
 #Write-Output "`n`n Printing GIT status#####"
 #git status
-if($env -eq "dev")
-{
-"clone dev"
-}
-elseif()
-{
-"NON DEV"
-}
+
 Write-Output "Printing Webhook Github $param1 ...";
 #Write-Output "Printing Webhook Action TEXT ${{ github.event.client_payload.text }} ...";
 #$GITHUB_CONTEXT
@@ -28,8 +21,7 @@ Write-Output "Printing Location"
 
 Write-Output "Create or Update File"
 
-[string]$time = (Get-Date)
-"Hello World $param1... $time" | Out-File ".\Process.tf" -Force #-append
+"Hello World $param1" | Out-File ".\Process.tf" -Force
 
 Write-Output "Add the file"
 git add --all
